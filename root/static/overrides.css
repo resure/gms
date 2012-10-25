@@ -1,0 +1,25 @@
+body {
+  padding-top: 60px;
+}
+
+#footer {
+  text-align: right;
+  color: #999;
+  font-size: 13px;
+  border-top: 1px dashed #DDD;
+  padding-top: 7px;
+  padding-bottom: 20px;
+}
+
+#header {
+  color: #CFCFCF;
+}
+
+#header a {
+  color: #F0F0F0;
+}
+
+.table-desc tr > td:first-child {
+  max-width: 60px;
+  /* font-weight: bold; */
+}

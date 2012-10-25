@@ -23,7 +23,7 @@ function hide(elem_id) {
 function tooltip (elem, id) {
     untooltip();
     var div = document.createElement ("div");
-    div.className = "tooltip";
+    div.className = "popover-inner";
     div.id = "tooltip";
 
     var parent = elem.parentNode;

@@ -2,12 +2,12 @@
 
 <p>Your contact information is on file as follows:</p>
 
-<table>
-<tr> <td>Name:</td><td>[% user_name %]</td> </tr>
-<tr> <td>Email:</td><td>[% user_email %]</td> </tr>
-<tr> <td colspan="2">Address:</td> </tr>
-<tr> <td>Address 1:</td><td>[% address_one %]</td> </tr>
-<tr> <td>Address 2:</td><td>[% address_two %]</td> </tr>
+<table class="table table-bordered table-hover table-desc">
+<tr> <td>Name</td><td>[% user_name %]</td> </tr>
+<tr> <td>Email</td><td>[% user_email %]</td> </tr>
+<!--tr> <td colspan="2">Address:</td></tr-->
+<tr> <td>Address 1</td><td>[% address_one %]</td> </tr>
+<tr> <td>Address 2</td><td>[% address_two %]</td> </tr>
 <tr> <td>City</td><td>[% city %]</td> </tr>
 <tr> <td>State</td><td>[% state %]</td> </tr>
 <tr> <td>Postal Code</td><td>[% postcode %]</td> </tr>
@@ -16,4 +16,4 @@
 <tr> <td>Telephone (alternate)</td><td>[% phone_two %]</td> </tr>
 </table>
 
-<p><a href="[% c.uri_for ("/userinfo/edit/") %]">Edit Contact Information</a></p>
+<p><a href="[% c.uri_for ("/userinfo/edit/") %]" class="btn btn-mini">Edit Contact Information</a></p>
