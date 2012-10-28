@@ -6,7 +6,7 @@
 
 <p>The following channel namespaces are awaiting approval:</p>
 
-<table>
+<table class="table">
 <tr>
   <th>Namespace</th> <th>Group</th> <th>Approve</th> <th>Reject</th> <th>Hold</th>
 </tr>
@@ -28,9 +28,9 @@
 [% END -%]
 </table>
 
-<p>
+<div class="form-actions">
   <input type="hidden" name="approve_item" value="[% approve_item %]" />
-  <input type="submit" value="Submit" />
-</p>
+  <input type="submit" value="Submit" class="btn btn-primary" />
+</div>
 
 </form>

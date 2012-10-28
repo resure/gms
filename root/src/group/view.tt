@@ -2,7 +2,7 @@
 
 <h2>[% group.group_name %]</h2>
 
-<table>
+<table class="table table-bordered table-hover table-desc">
 <tr> <td>Type</td>              <td>[% group.group_type %]</td> </tr>
 <tr> <td>URL</td>               <td>[% group.url %]</td> </tr>
 <tr> <td>Status</td>            <td>[% group.status %]</td> </tr>

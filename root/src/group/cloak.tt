@@ -1,20 +1,29 @@
 [% META title = 'Cloak Users' %]
 
-<form method="post" action="[% c.uri_for("/group/${group.id}/cloak/submit") %]">
+<form method="post" action="[% c.uri_for("/group/${group.id}/cloak/submit") %]" class="form-horizontal well">
 
-Which user to cloak?<br/>
+  <legend>Cloak</legend>
 
-<input type="text" name="accountname" value="[% accountname %]" /><br/>
+  <div class="inputs">
 
-Enter the cloak:<br/>
+    <div class="control-group">
+      <label class="control-label">Which user to cloak?</label>
+      <div class="controls"><input type="text" name="accountname" value="[% accountname %]" /></div>
+    </div>
 
-<select name="cloak_namespace">
-  [% FOREACH namespace IN cloak_namespaces %]
-    <option value="[% namespace.namespace %]" [% IF cloak_namespace == namespace.namespace %] selected [% END %]>[% namespace.namespace %]</option>
-  [% END %]
-</select>/
-<input type="text" name="cloak" value="[% cloak %]" />
+    <div class="control-group">
+      <label class="control-label">Enter the cloak:</label>
+      <div class="controls">
+        <select name="cloak_namespace">
+          [% FOREACH namespace IN cloak_namespaces %]
+            <option value="[% namespace.namespace %]" [% IF cloak_namespace == namespace.namespace %] selected [% END %]>[% namespace.namespace %]</option>
+          [% END %]
+        </select>/
+        <input type="text" name="cloak" value="[% cloak %]" />
+      </div>
+    </div>
+  </div>
 
-<p><input type="submit" /></p>
+  <div class="form-actions"><input type="submit" class="btn btn-primary" /></div>
 
 </form>

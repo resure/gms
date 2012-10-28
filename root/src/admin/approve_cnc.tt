@@ -3,7 +3,7 @@
 <form method="post" action="[% c.uri_for('/admin/approve_change/submit') %]">
 <input type="hidden" name="approve_changes"
     value="[% FOREACH cnc IN to_approve %][% cnc.id %] [% END %]" />
-<table>
+<table class="table">
 <tr>
  <th>Namespace</th> <th>Group</th> <th>Status</th> <th>Approve</th> <th>Reject</th> <th>Hold</th>
 </tr>
@@ -35,11 +35,11 @@
       Free text:
     </td>
     <td colspan="6">
-      <textarea name="freetext_[% cnc.id %]" style="width:100%;height:100px;"></textarea>
+      <textarea name="freetext_[% cnc.id %]"></textarea>
    </td>
   </tr>
 [% END -%]
 </table>
 <input type='hidden' name='change_item' value="[% change_item %]" />
-<input type="submit" value="Submit" />
+<div class="form-actions"><input type="submit" value="Submit" class="btn btn-primary" /></div>
 </form>

@@ -2,7 +2,7 @@
 
 <h2>Verify [% group.group_name %]</h2>
 
-<form method="post" action="[% c.uri_for("/group/${group.id}/verify/submit") %]">
+<form method="post" action="[% c.uri_for("/group/${group.id}/verify/submit") %]" class="form-horizontal well">
     Here are the possible verification methods:<br/><br/>
     <ul>
         <li>
@@ -17,5 +17,7 @@
         </li><br/>
     </ul>
     Once you've completed one of the verification methods below, submit this form:<br/><br/>
-    <input type="submit" value="Submit" />
+    <div class="form-actions">
+      <input type="submit" value="Submit" class="btn btn-primary" />
+    </div>
 </form>

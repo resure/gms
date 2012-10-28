@@ -2,11 +2,11 @@
 
 <h2>Cloak Namespaces for [% group.group_name %]</h2>
 
-[% group.group_name %]'s current active namespaces are:<br/>
+<p>[% group.group_name %]'s current active namespaces are:</p>
 
 <form method="post" action="[% c.uri_for("/group/${group.id}/edit_cloak_namespaces/submit") %]">
 
-<table>
+<table class="table table-hover">
 <tr>
 <th>Namespace</th>
 <th>Status</th>
@@ -44,11 +44,11 @@
 
 <p>
   Add a new namespace:
-  Namespace: <input type='text' name='namespace' value="[% prev_namespace %]" /><br />
+  <input type='text' name='namespace' value="[% prev_namespace %]" placeholder="Namespace" /><br />
   [% IF confirm %]
     <input type="checkbox" name="do_confirm" value="1" /> Confirm Create Conflicting Change<br/>
   [% END %]
-  <input type='submit' value='Submit' />
+  <div class="form-actions"><input type='submit' value='Submit' class="btn btn-primary" /></div>
 </p>
 
 </form>

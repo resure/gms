@@ -2,72 +2,103 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de">
   <head>
-    <title>Freenode Group Management System</title>
+    <title>freenode group management system</title>
     <link rel="stylesheet" type="text/css" href="[% c.uri_for('/static/main.css') %]" />
+    <link rel="stylesheet" type="text/css" href="[% c.uri_for('/static/bootstrap.min.css') %]" />
+    <link rel="stylesheet" type="text/css" href="[% c.uri_for('/static/overrides.css') %]" />
     <script type="text/javascript" src="[% c.uri_for('/static/main.js') %]"></script>
+    <script type="text/javascript" src="[% c.uri_for('/static/bootstrap.min.js') %]"></script>
   </head>
   <body>
-    <div id="header">
-      <div class="logo">
-        <img src="[% c.uri_for('/static/freenode_logo.png') %]" width="340" height="68" />
+    <div id="header" class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+        <a class="brand" href="/"><span style="font-family: Georgia,Times,serif"><span style="color:#E6E6E6">free</span><span style="color:#4BDB4A">node</span></span> <span style="font-size:13pt;font-weight:normal">group management system</span></a>
+          <div class="container-fluid">
+            <ul class="nav">
+              <li><a href="http://freenode.net/">Main Site</a></li>
+              <!-- <li><a href="[% c.uri_for('/') %]">GMS Home</a></li> -->
+            </ul>
+
+            <ul class="nav pull-right" style="padding-top:9px">
+                [% IF c.user_exists -%]
+                  You are logged in as [% c.user.username | html %]
+                  (<a href="[% c.uri_for('/logout') %]">log out</a>).
+                [% ELSE -%]
+                  You are not logged in
+                  (<a href="[% c.uri_for('/login') %]">log in</a>).
+                [% END %]
+            </ul>
+          </div>
+        </div>
       </div>
-      <div class="login">
-          [% IF c.user_exists -%]
-          You are logged in as [% c.user.username | html %]
-          (<a href="[% c.uri_for('/logout') %]">log out</a>).
-          [% ELSE -%]
-          You are not logged in
-          (<a href="[% c.uri_for('/login') %]">log in</a>).
-          [% END %]
-      </div>
+      <!-- <div class="logo"> -->
+      <!--   <img src="[% c.uri_for('/static/freenode_logo.png') %]" width="340" height="68" /> -->
+      <!-- </div> -->
     </div><!-- header end -->
-    <div id="sidebar">
-      <div><!-- links -->
-        <a href="http://freenode.net/">Freenode Main Page</a>
-        <br />
-        <a href="[% c.uri_for('/') %]">GMS Home</a>
-      </div>
-      <div>
-          <ul>
+
+    <div id="main-container" class="container-fluid">
+      <div class="row-fluid">
+
+        <div id="sidebar" class="span3">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list"><!-- links -->
+              <li class="nav-header">Navigation</li>
+              <li><a href="http://freenode.net/">Freenode Main Page</a></li>
+              <li><a href="[% c.uri_for('/') %]">GMS Home</a></li>
               [% IF  c.check_user_roles('admin')  %]
-              <li><a href="[% c.uri_for('/admin/') %]">Admin</a></li>
+                <li class="nav-header">Administration</li>
+                <li><a href="[% c.uri_for('/admin/') %]">Admin</a></li>
               [% END %]
-              <li><a href="[% c.uri_for('/group/') %]">Your groups</a></li>
-              <li><a href="[% c.uri_for('/userinfo') %]">Your contact info</a></li>
-              <li><a href="[% c.uri_for('/cloak') %]">Your pending group cloaks</a></li>
-              <li><a href="[% c.uri_for('/group/new') %]">Register a new group</a></li>
-          </ul>
-      </div>
-    </div><!-- sidebar end -->
-    <div id="main">
-      <!-- error box -->
-      [% IF error_msg %]
-      <div class="errormsg">
-        [% error_msg | html %]
-      </div>
-      [% END %]
-      [% IF errors %]
-      <div class="errormsg">
-          <p> The following errors were encountered:</p>
-          <ul>
-              [% FOREACH error IN errors %]
-              <li> [% error | html %] </li>
+              [% IF c.user_exists -%]
+              <li class="nav-header">Control</li>
+                <li><a href="[% c.uri_for('/group/') %]">Your groups</a></li>
+                <li><a href="[% c.uri_for('/userinfo') %]">Your contact info</a></li>
+                <li><a href="[% c.uri_for('/cloak') %]">Your pending group cloaks</a></li>
+                <li><a href="[% c.uri_for('/group/new') %]">Register a new group</a></li>
               [% END %]
-          </ul>
-      </div>
-      [% END %]
-      <!-- status box -->
-      [% IF status_msg %]
-      <div class="statusmsg">
-        [% status_msg | html %]
-      </div>
-      [% END %]
-      <!-- content box -->
-      <div class="content">
-        [% content %]
-      </div>
-    </div><!-- main end -->
+            </ul>
+          </div>
+        </div><!-- sidebar end -->
+
+        <div id="main" class="span9">
+          <!-- error box -->
+          [% IF error_msg %]
+          <div class="errormsg alert alert-error">
+            [% error_msg | html %]
+          </div>
+          [% END %]
+          [% IF errors %]
+          <div class="errormsg alert alert-error">
+              <p> The following errors were encountered:</p>
+              <ul>
+                  [% FOREACH error IN errors %]
+                  <li> [% error | html %] </li>
+                  [% END %]
+              </ul>
+          </div>
+          [% END %]
+          <!-- status box -->
+          [% IF status_msg %]
+          <div class="statusmsg alert alert-success">
+            [% status_msg | html %]
+          </div>
+          [% END %]
+          <!-- content box -->
+          <div id="content-wrap" class="content">
+            [% content %]
+          </div>
+        </div><!-- main end -->
+
+
+      </div> <!-- row fluid end -->
+
     <div id="footer">
+      <div class="pull-right">
+        Copyright &copy; 2002 &mdash; 2012 Peer-Directed Projects Center
+      </div>
     </div><!-- footer end -->
+
+    </div><!-- container fluid end -->
   </body>
 </html>
