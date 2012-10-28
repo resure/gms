@@ -1,32 +1,52 @@
 [% META title = 'Take Over Channels' %]
 
-<form method="post" action="[% c.uri_for("/group/${group.id}/take_over/submit") %]">
-    Enter the channel name:<br/>
-    <input type="text" name="channel" value="[% channel %]" /><br/><br />
+<form method="post" action="[% c.uri_for("/group/${group.id}/take_over/submit") %]" class="form-horizontal well">
+  <legend>Take Over Channels</legend>
+  <div class="inputs">
 
-    Which namespace does the channel belong to?<br />
+    <div class="control-group">
+      <label class="control-label">Enter the channel name:</label>
+      <div class="controls">
+        <input type="text" name="channel" value="[% channel %]" />
+      </div>
+    </div>
 
-    <select name="channel_namespace">
-      [% FOREACH namespace IN channel_namespaces %]
-        <option value="[% namespace.namespace %]" [% IF channel_namespace == namespace.namespace %] selected [% END %]>[% namespace.namespace %]</option>
-      [% END %]
-    </select><br /><br />
+    <div class="control-group">
+      <label class="control-label">Which namespace does the channel belong to?</label>
+      <div class="controls">
+        <select name="channel_namespace">
+          [% FOREACH namespace IN channel_namespaces %]
+            <option value="[% namespace.namespace %]" [% IF channel_namespace == namespace.namespace %] selected [% END %]>[% namespace.namespace %]</option>
+          [% END %]
+        </select>
+      </div>
+    </div>
+
     <p>What would you like to do?</p>
-    <ul>
-    <li>
-    <input type="radio" name="action"i value="1" [% IF !action || action == 1 %] checked [% END %] /> Transfer the channel to a Group Contact.<br/><br/>
-    Which Group Contact should it be transferred to?<br/>
-    <select name="group_contact">
-      [% FOREACH gc IN group_contacts %]
-        <option value="[% gc.contact.id %]" [% IF group_contact == gc.contact.id %] selected [% END %]>[% gc.contact.account.accountname %]</option>
-      [% END %]
-    </select><br/><br/>
-    </li>
 
-    <li>
-    <input type="radio" name="action" value="2" [% IF action == 2 %] checked [% END %] /> Drop the channel.<br/ >
-    </li>
-    </ul>
+    <div class="control-group">
+      <label class="control-label">Transfer the channel to a Group Contact.</label>
+      <div class="controls"><input type="radio" name="action"i value="1" [% IF !action || action == 1 %] checked [% END %] /> </div>
+    </div>
 
-    <p><input type="submit" value="submit" /></p>
+    <div class="control-group nested">
+      <label class="control-label">Which Group Contact should it be transferred to?</label>
+      <div class="controls">
+        <select name="group_contact">
+          [% FOREACH gc IN group_contacts %]
+            <option value="[% gc.contact.id %]" [% IF group_contact == gc.contact.id %] selected [% END %]>[% gc.contact.account.accountname %]</option>
+          [% END %]
+        </select>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label">Drop the channel.</label>
+      <div class="controls"><input type="radio" name="action" value="2" [% IF action == 2 %] checked [% END %] /></div>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <p><input type="submit" value="submit" class="btn btn-primary" /></p>
+  </div>
 </form>

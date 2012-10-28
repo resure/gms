@@ -6,7 +6,7 @@
 
 <p>The following group contacts are awaiting approval:</p>
 
-<table>
+<table class="table">
 <tr>
   <th>Group</th> <th>Account</th> <th>Approve</th> <th>Reject</th> <th>Hold</th>
 </tr>
@@ -24,13 +24,13 @@
   </tr>
   <tr>
     <td>Enter optional free text about this change:</td>
-    <td colspan="3"><textarea style="width:350px;height:100px;" name="freetext_[% gc.id %]"></textarea></td>
+    <td colspan="3"><textarea name="freetext_[% gc.id %]"></textarea></td>
   </tr>
 [% END -%]
 </table>
 
-<p>
-  <input type="submit" value="Submit" />
-</p>
+<div class="form-actions">
+  <input type="submit" value="Submit" class="btn btn-primary" />
+</div>
 
 </form>

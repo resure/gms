@@ -4,7 +4,7 @@
 <form method="post" action="[% c.uri_for('/admin/approve_cloak/submit') %]">
 <input type="hidden" name="approve_changes"
     value="[% FOREACH cc IN to_approve %][% cc.id %] [% END %]" />
-<table>
+<table class="table">
 <tr>
  <th>Account Name</th> <th>Cloak</th> <th>Expand</th> <th>Approve</th> <th>Reject</th> <th>Hold</th>
 </tr>
@@ -66,5 +66,5 @@
   </tr>
 [% END -%]
 </table>
-<input type="submit" value="Submit" />
+<div class="form-actions"><input type="submit" value="Submit" class="btn btn-primary" /></div>
 </form>

@@ -3,7 +3,7 @@
 <form method="post" action="[% c.uri_for('/admin/approve_change/submit') %]">
 <input type="hidden" name="approve_changes"
     value="[% FOREACH clnc IN to_approve %][% clnc.id %] [% END %]" />
-<table>
+<table class="table">
 <tr>
  <th>Namespace</th> <th>Group</th> <th>Status</th> <th>Approve</th> <th>Reject</th> <th>Hold</th>
 </tr>
@@ -41,5 +41,5 @@
 [% END -%]
 </table>
 <input type='hidden' name='change_item' value="[% change_item %]" />
-<input type="submit" value="Submit" />
+<div class="form-actions"><input type="submit" value="Submit" class="btn btn-primary" /></div>
 </form>

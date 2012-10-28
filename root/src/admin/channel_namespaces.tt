@@ -6,7 +6,7 @@
 
 <form method="post" action="[% c.uri_for("/admin/${group.id}/edit_channel_namespaces/submit") %]">
 
-<table>
+<table class="table">
 <tr>
 <th>Namespace</th>
 <th>Status</th>
@@ -32,10 +32,10 @@
 
 </table>
 
-<p>
+<div class="form-actions">
   Add a new namespace:
-  Namespace: <input type='text' name='namespace' /><br />
+  <input type='text' name='namespace' placeholder="Namespace" /><br />
   <input type='submit' value='Submit' />
-</p>
+</div>
 
 </form>

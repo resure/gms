@@ -8,7 +8,7 @@
 
 <p>The following groups are awaiting approval:</p>
 
-<table>
+<table class="table table-hover table-bordered">
 <tr>
   <th>Group</th> <th>Approve</th> <th>Reject</th> <th>Hold</th>
 </tr>
@@ -30,7 +30,7 @@
 
 <p>The following groups are awaiting manual verification and approval:</p>
 
-<table>
+<table class="table table-hover table-bordered">
 <tr>
   <th>Group</th> <th>Approve</th> <th>Reject</th> <th>Verify</th> <th>Hold</th>
 </tr>
@@ -49,8 +49,8 @@
 [% END -%]
 </table>
 
-<p>
-  <input type="submit" value="Submit" />
-</p>
+<div class="form-actions">
+  <input type="submit" value="Submit" class="btn btn-primary" />
+</div>
 
 </form>

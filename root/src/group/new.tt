@@ -12,132 +12,135 @@ to help us verify your registration.</p>
   (Address fields are only required if the group has a registered address).
 </p>
 
-<form method="post" action="[% c.uri_for('/group/new/submit') %]">
-<table>
-<tr> <td colspan="2"><strong>Group Information</strong></td> </tr>
-<tr>
-  <td>* Group Type</td>
-  <td>
-      <select name="group_type" id="group_type">
-        <option value="informal" selected="selected">Informal Group</option>
-        <option value="corporation">Corporation / Business entity</option>
-        <option value="education">Educational Institution</option>
-        <option value="government">Governmental Entity</option>
-        <option value="nfp">Not for profit / Charitable Organisation</option>
-        <option value="internal">Internal Group</option>
-      </select>
+<form method="post" action="[% c.uri_for('/group/new/submit') %]" class="form-horizontal well">
+<div class="inputs">
+  <legend>Group information</legend>
 
-      <img src="[% c.uri_for('/static/info.gif') %]" onmouseover="tooltip(this, 1)" onmouseout="untooltip()" />
-  </td>
-</tr>
-<tr>
-  <td>* Group Name</td>
-  <td>
-    <input type="text" name="group_name" style="width:90%" value="[% group_name %]">
-    <img src="[% c.uri_for('/static/info.gif') %]" onmouseover="tooltip(this, 2)" onmouseout="untooltip()" />
-  </td>
-</tr>
-<tr>
-  <td>* Group URL</td>
-  <td>
-    <input type="text" name="group_url" style="width:90%" value="[% group_url %]">
-    <img src="[% c.uri_for('/static/info.gif') %]" onmouseover="tooltip(this, 3)" onmouseout="untooltip()" />
-  </td>
-</tr>
-<tr>
-  <td>* Channel Namespace</td>
-  <td>
-    <input type="text" name="channel_namespace" style="width:90%" value="[% channel_namespace %]">
-    <img src="[% c.uri_for('/static/info.gif') %]" onmouseover="tooltip(this, 4)" onmouseout="untooltip()" />
-  </td>
+  <div class="control-group">
+    <label class="control-label">* Group Type</label>
+    <div class="controls">
+        <select name="group_type" id="group_type">
+          <option value="informal" selected="selected">Informal Group</option>
+          <option value="corporation">Corporation / Business entity</option>
+          <option value="education">Educational Institution</option>
+          <option value="government">Governmental Entity</option>
+          <option value="nfp">Not for profit / Charitable Organisation</option>
+          <option value="internal">Internal Group</option>
+        </select>
 
-</tr>
-[% IF confirm %]
-  <tr>
-    <td>
-      <input type="checkbox" name="do_confirm" value="1" /> Confirm Create Conflicting Change
-    </td>
-  </tr>
-[% END %]
-<tr>
-  <td>Does the group have a registered / postal address?</td>
-  <td><input type="radio" [% IF has_address %] checked="checked" [% END %] name="has_address" id="has_address_y" value="y"> Yes <br />
-      <input type="radio" name="has_address" id="has_address_n" value="n" [% IF !has_address %] checked="checked" [% END %]> No
-  </td>
-</tr>
-<tr>
-  <td colspan="2">
-    <strong>Group Address</strong> (if applicable)
-    <img src="[% c.uri_for('/static/info.gif') %]" onmouseover="tooltip(this, 5)" onmouseout="untooltip()" />
-  </td>
-</tr>
-<tr>
-  <td>* Address 1:</td><td><input type="text" name="address_one" style="width:90%" value="[% address_one %]"></td>
-</tr>
-<tr>
-  <td>Address 2:</td><td><input type="text" name="address_two" style="width:90%" value="[% address_two %]"></td>
-</tr>
-<tr>
-  <td>* City</td><td><input type="text" name="city" style="width:90%" value="[% city %]"></td>
-</tr>
-<tr>
-  <td>State</td><td><input type="text" name="state" style="width:90%" value="[% state %]"></td>
-</tr>
-<tr>
-  <td>Postal Code</td><td><input type="text" name="postcode" style="width:90%" value="[% postcode %]"></td>
-</tr>
-<tr>
-  <td>* Country</td><td><input type="text" name="country" style="width:90%" value="[% country %]"></td>
-</tr>
-<tr>
-  <td>* Telephone</td><td><input type="text" name="phone" style="width:90%" value="[% phone %]"></td>
-</tr>
-<tr>
-  <td>Telephone (alternate)</td><td><input type="text" name="phone2" style="width:90%" value="[% phone2 %]"></td>
-</tr>
+        <img src="[% c.uri_for('/static/info.gif') %]" onmouseover="tooltip(this, 1)" onmouseout="untooltip()" />
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label">* Group Name</label>
+    <div class="controls">
+      <input type="text" name="group_name" style="width:90%" value="[% group_name %]">
+      <img src="[% c.uri_for('/static/info.gif') %]" onmouseover="tooltip(this, 2)" onmouseout="untooltip()" />
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label">* Group URL</label>
+    <div class="controls">
+      <input type="text" name="group_url" style="width:90%" value="[% group_url %]">
+      <img src="[% c.uri_for('/static/info.gif') %]" onmouseover="tooltip(this, 3)" onmouseout="untooltip()" />
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label">* Channel Namespace</label>
+    <div class="controls">
+      <input type="text" name="channel_namespace" style="width:90%" value="[% channel_namespace %]">
+      <img src="[% c.uri_for('/static/info.gif') %]" onmouseover="tooltip(this, 4)" onmouseout="untooltip()" />
+    </div>
 
-<tr>
-  <td colspan="2"><strong>Additional Information</strong></td>
-</tr>
+  </div>
+  [% IF confirm %]
+    <div class="control-group">
+      <label class="control-label">Confirm Create Conflicting Change</label>
+      <div class="controls">
+        <input type="checkbox" name="do_confirm" value="1" />
+      </div>
+    </div>
+  [% END %]
+  <div class="control-group">
+    <label class="control-label">Does the group have a registered / postal address?</label>
+    <div class="controls">
+        <input type="radio" [% IF has_address %] checked="checked" [% END %] name="has_address" id="has_address_y" value="y"> Yes
+        <br />
+        <input type="radio" name="has_address" id="has_address_n" value="n" [% IF !has_address %] checked="checked" [% END %]> No
+    </div>
+  </div>
+  <div class="control-group">
+    <td colspan="2">
+      <strong>Group Address</strong> (if applicable)
+      <img src="[% c.uri_for('/static/info.gif') %]" onmouseover="tooltip(this, 5)" onmouseout="untooltip()" />
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label">* Address 1:</label><div class="controls"><input type="text" name="address_one" style="width:90%" value="[% address_one %]"></div>
+  </div>
+  <div class="control-group">
+    <label class="control-label">Address 2:</label><div class="controls"><input type="text" name="address_two" style="width:90%" value="[% address_two %]"></div>
+  </div>
+  <div class="control-group">
+    <label class="control-label">* City</label><div class="controls"><input type="text" name="city" style="width:90%" value="[% city %]"></div>
+  </div>
+  <div class="control-group">
+    <label class="control-label">State</label><div class="controls"><input type="text" name="state" style="width:90%" value="[% state %]"></div>
+  </div>
+  <div class="control-group">
+    <label class="control-label">Postal Code</label><div class="controls"><input type="text" name="postcode" style="width:90%" value="[% postcode %]"></div>
+  </div>
+  <div class="control-group">
+    <label class="control-label">* Country</label><div class="controls"><input type="text" name="country" style="width:90%" value="[% country %]"></div>
+  </div>
+  <div class="control-group">
+    <label class="control-label">* Telephone</label><div class="controls"><input type="text" name="phone" style="width:90%" value="[% phone %]"></div>
+  </div>
+  <div class="control-group">
+    <label class="control-label">Telephone (alternate)</label><div class="controls"><input type="text" name="phone2" style="width:90%" value="[% phone2 %]"></div>
+  </div>
 
-<tr>
-  <td>Join the Groups Advisory Board?</td>
-  <td>
-    <input type="radio" name="join_gab" id="join_gab_y" value="Yes" checked="checked"> Yes
-    <img src="[% c.uri_for('/static/info.gif') %]" onmouseover="tooltip(this, 6)" onmouseout="untooltip()" />
-    <br />
-    <input type="radio" name="join_gab" id="join_gab_n" value="No"> No
-  </td>
-</tr>
-<tr>
-  <td>Email address for GAB mailing list</td>
-  <td><input type="text" name="gab_email" style="width:90%" value="[% gab_email %]"></td>
-</tr>
+  <div class="control-group">
+    <h4><strong>Additional Information</strong></h4>
+  </div>
 
-<tr>
-  <td>Include project on Primary Groups listing?</td>
-  <td>
-    <input type="radio" name="include_listing" id="include_listing_y" value="y" checked="checked"> Yes
-    <img src="[% c.uri_for('/static/info.gif') %]" onmouseover="tooltip(this, 7)" onmouseout="untooltip()" />
-    <br />
-    <input type="radio" name="include_listing" id="include_listing_n" value="n"> No
-  </td>
-</tr>
-<tr>
-  <td>URL to be linked</td><td><input type="text" name="listing_url" style="width:90%" value="[% listing_url %]"></td>
-</tr>
-<tr>
-  <td>Small blurb about the project</td>
-  <td><textarea name="listing_blurb" cols="45" rows="5">[% listing_blurb %]</textarea></td>
-</tr>
-<tr>
-  <td>Any other information</td>
-  <td><textarea name="other_info" cols="45" rows="5">[% other_info %]</textarea></td>
-</tr>
-<tr>
-  <td colspan="2"><input type="submit" name="submit" value="Submit" /></td>
-</tr>
-</table>
+  <div class="control-group">
+    <label class="control-label">Join the Groups Advisory Board? <img src="[% c.uri_for('/static/info.gif') %]" onmouseover="tooltip(this, 6)" onmouseout="untooltip()" /></label>
+    <div class="controls">
+      <input type="radio" name="join_gab" id="join_gab_y" value="Yes" checked="checked"> Yes
+      <br />
+      <input type="radio" name="join_gab" id="join_gab_n" value="No"> No
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label">Email address for GAB mailing list</label>
+    <div class="controls"><input type="text" name="gab_email" style="width:90%" value="[% gab_email %]"></div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label">Include project on Primary Groups listing? <img src="[% c.uri_for('/static/info.gif') %]" onmouseover="tooltip(this, 7)" onmouseout="untooltip()" /></label>
+    <div class="controls">
+      <input type="radio" name="include_listing" id="include_listing_y" value="y" checked="checked"> Yes
+      <br />
+      <input type="radio" name="include_listing" id="include_listing_n" value="n"> No
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label">URL to be linked</label><div class="controls"><input type="text" name="listing_url" style="width:90%" value="[% listing_url %]"></div>
+  </div>
+  <div class="control-group">
+    <label class="control-group">Small blurb about the project</label>
+    <div class="controls"><textarea name="listing_blurb" cols="45" rows="5">[% listing_blurb %]</textarea></div>
+  </div>
+  <div class="control-group">
+    <label class="control-group">Any other information</label>
+    <div class="controls"><textarea name="other_info" cols="45" rows="5">[% other_info %]</textarea></div>
+  </div>
+</div>
+
+<div class="form-actions">
+  <input type="submit" name="submit" value="Submit" class="btn btn-primary" />
+</div>
 
 <!-- Text for the mouseover tooltip elements !-->
 

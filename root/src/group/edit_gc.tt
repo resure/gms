@@ -4,9 +4,9 @@
 <input type="hidden" name="group_contacts"
     value="[% FOREACH gc IN group_contacts %][% gc.contact.id %] [% END %]" />
 
-<p>Group Contacts:</p>
+<legend>Group Contacts</legend>
 
-<table>
+<table class="table table-hover">
 <tr>
   <th>Contact</th> <th>Status</th> <th>Primary?</th> <th>Change</th> <th>Hold</th>
 </tr>
@@ -39,8 +39,8 @@
 [% END -%]
 </table>
 
-<p>
-  <input type="submit" value="Submit" />
-</p>
+<div class="form-actions">
+  <input type="submit" value="Submit" class="btn btn-primary" />
+</div>
 
 </form>
